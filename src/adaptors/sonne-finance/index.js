@@ -11,7 +11,7 @@ const CHAINS = {
     SONNE: '0x1db2466d9f5e10d7090e7152b68d62703a2245f0',
   },
   base: {
-    COMPTROLLER_ADDRESS: '0x076c7883e154F6Cc0cA04888288b350d78cf1321',
+    COMPTROLLER_ADDRESS: '0x1DB2466d9F5e10D7090E7152B68d62703a2245F0',
     REWARD_DISTRIBUTOR: '0x1DB2466d9F5e10D7090E7152B68d62703a2245F0',
     SONNE: '0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c',
   },
@@ -93,6 +93,7 @@ const multiCallMarkets = async (markets, method, abi, chain) => {
 };
 
 const lendingApy = async (chain) => {
+  console.log('chain', chain);
   const COMPTROLLER_ADDRESS = CHAINS[chain].COMPTROLLER_ADDRESS;
 
   const allMarketsRes = (
@@ -105,6 +106,8 @@ const lendingApy = async (chain) => {
   ).output;
 
   const allMarkets = Object.values(allMarketsRes);
+
+  console.log("allMarketsRes", allMarketsRes)
 
   if (!allMarkets.length) return [];
 
