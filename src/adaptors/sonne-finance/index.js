@@ -93,7 +93,6 @@ const multiCallMarkets = async (markets, method, abi, chain) => {
 };
 
 const lendingApy = async (chain) => {
-  console.log('chain', chain);
   const COMPTROLLER_ADDRESS = CHAINS[chain].COMPTROLLER_ADDRESS;
 
   const allMarketsRes = (
@@ -106,8 +105,6 @@ const lendingApy = async (chain) => {
   ).output;
 
   const allMarkets = Object.values(allMarketsRes);
-
-  console.log("allMarketsRes", allMarketsRes)
 
   if (!allMarkets.length) return [];
 
